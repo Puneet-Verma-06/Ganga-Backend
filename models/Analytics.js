@@ -23,6 +23,9 @@ const analyticsSchema = new mongoose.Schema({
   referrer: String,
   userAgent: String,
   ip: String
+  ,
+  // Site/hostname (to separate analytics for multiple deployments)
+  site: String
 }, { 
   timestamps: true,
   // Optimize for time-series data

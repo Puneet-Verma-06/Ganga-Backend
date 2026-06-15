@@ -1,54 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-labelledby="title desc">
+  <title id="title">The Ganga City</title>
+  <desc id="desc">Logo for The Ganga City by Ganga Property</desc>
   <defs>
-    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="silverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#B8B8B8;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#E5E5E5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#9E9E9E;stop-opacity:1" />
+    <linearGradient id="roofGradient" x1="110" y1="38" x2="214" y2="142" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#a80f16"/>
     </linearGradient>
   </defs>
-  
-  <!-- Arc/Wave -->
-  <path d="M 80 200 Q 300 50, 520 200" stroke="url(#goldGradient)" stroke-width="3" fill="none"/>
-  
-  <!-- Left Building -->
-  <rect x="100" y="140" width="35" height="60" fill="url(#silverGradient)"/>
-  <rect x="102" y="142" width="14" height="56" fill="url(#goldGradient)"/>
-  
-  <!-- Middle Building -->
-  <rect x="150" y="110" width="35" height="90" fill="url(#silverGradient)"/>
-  <rect x="152" y="112" width="14" height="86" fill="url(#goldGradient)"/>
-  
-  <!-- Right Building -->
-  <rect x="200" y="90" width="35" height="110" fill="url(#silverGradient)"/>
-  <rect x="202" y="92" width="14" height="106" fill="url(#goldGradient)"/>
-  
-  <!-- First House -->
-  <path d="M 280 150 L 320 120 L 360 150 L 360 200 L 280 200 Z" fill="url(#goldGradient)"/>
-  <rect x="305" y="165" width="12" height="12" fill="#FFD700"/>
-  <rect x="323" y="165" width="12" height="12" fill="#FFD700"/>
-  
-  <!-- Second House -->
-  <path d="M 370 150 L 410 120 L 450 150 L 450 200 L 370 200 Z" fill="url(#goldGradient)"/>
-  <rect x="395" y="165" width="12" height="12" fill="#FFD700"/>
-  <rect x="413" y="165" width="12" height="12" fill="#FFD700"/>
-  
-  <!-- Wave/Ground -->
-  <path d="M 50 200 Q 150 190, 250 200 T 450 200 T 550 200" stroke="url(#goldGradient)" stroke-width="2.5" fill="none"/>
-  
-  <!-- ADIRA Text -->
-  <text x="300" y="270" font-family="Georgia, serif" font-size="80" font-weight="bold" fill="url(#goldGradient)" text-anchor="middle" letter-spacing="2">ADIRA</text>
-  
-  <!-- Line under ADIRA -->
-  <line x1="130" y1="285" x2="250" y2="285" stroke="url(#goldGradient)" stroke-width="2"/>
-  
-  <!-- ESTATE Text -->
-  <text x="300" y="310" font-family="Georgia, serif" font-size="32" font-weight="normal" fill="#FFFFFF" text-anchor="middle" letter-spacing="8">ESTATE</text>
-  
-  <!-- Line under ESTATE -->
-  <line x1="350" y1="285" x2="470" y2="285" stroke="url(#goldGradient)" stroke-width="2"/>
+  <rect width="720" height="240" fill="none"/>
+  <g transform="translate(48 34)">
+    <path d="M116 8 216 91v96h-67v-58H83v58H16V91L116 8Z" fill="#fff"/>
+    <path d="M116 8 216 91v30L116 38 16 121V91L116 8Z" fill="url(#roofGradient)"/>
+    <path d="M45 96 116 37l71 59v67h-38v-47H83v47H45V96Z" fill="#d71920"/>
+    <path d="M83 163v-47h66v47" fill="#fff"/>
+    <rect x="102" y="85" width="28" height="24" rx="3" fill="#fff"/>
+  </g>
+  <g transform="translate(300 70)">
+    <text x="0" y="48" font-family="Georgia, 'Times New Roman', serif" font-size="55" font-weight="700" fill="#d71920" letter-spacing="1">GANGA</text>
+    <text x="2" y="100" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#1f2937" letter-spacing="8">PROPERTY</text>
+    <rect x="3" y="118" width="298" height="5" rx="2.5" fill="#d71920"/>
+  </g>
 </svg>

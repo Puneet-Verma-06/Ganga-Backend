@@ -5,6 +5,7 @@ const { protect } = require('../middleware/auth');
 const adminAuth = require('../middleware/adminAuth');
 
 // Public tracking endpoints (no auth required)
+// Accept optional `site` field to separate analytics between deployments
 router.post('/track/pageview', analyticsController.trackPageView);
 router.post('/track/session', analyticsController.trackSession);
 

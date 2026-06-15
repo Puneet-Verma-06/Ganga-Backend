@@ -19,15 +19,13 @@ console.log('======================');
 const app = express();
 
 // Middleware
-// Configure CORS to allow your frontend domain
+// Configure CORS to allow your frontend domain(s).
+// Use the environment variable `ALLOWED_ORIGINS` to provide a comma-separated list of allowed origins.
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:3000',
-  'https://adiraestate.com',
-  'http://adiraestate.com',
-  'https://www.adiraestate.com',
-  'http://www.adiraestate.com'
+  ...(process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : [])
 ];
 
 const corsOptions = {

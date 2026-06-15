@@ -1,32 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#D4AF37"/>
-      <stop offset="50%" style="stop-color:#FFD700"/>
-      <stop offset="100%" style="stop-color:#B8860B"/>
-    </linearGradient>
-  </defs>
-  
-  <!-- Buildings -->
-  <rect x="15" y="40" width="8" height="20" fill="#B8B8B8"/>
-  <rect x="16" y="41" width="3" height="18" fill="url(#goldGrad)"/>
-  
-  <rect x="27" y="30" width="8" height="30" fill="#B8B8B8"/>
-  <rect x="28" y="31" width="3" height="28" fill="url(#goldGrad)"/>
-  
-  <rect x="39" y="25" width="8" height="35" fill="#B8B8B8"/>
-  <rect x="40" y="26" width="3" height="33" fill="url(#goldGrad)"/>
-  
-  <!-- Houses -->
-  <path d="M 52 45 L 60 38 L 68 45 L 68 60 L 52 60 Z" fill="url(#goldGrad)"/>
-  <rect x="57" y="50" width="3" height="3" fill="#FFD700"/>
-  
-  <path d="M 72 45 L 80 38 L 88 45 L 88 60 L 72 60 Z" fill="url(#goldGrad)"/>
-  <rect x="77" y="50" width="3" height="3" fill="#FFD700"/>
-  
-  <!-- Wave -->
-  <path d="M 10 60 Q 50 55, 90 60" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
-  
-  <!-- B letter -->
-  <text x="50" y="85" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">B</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="The Ganga City">
+  <rect width="100" height="100" rx="18" fill="#d71920"/>
+  <path d="M50 18 82 44v10L50 28 18 54V44L50 18Z" fill="#fff"/>
+  <path d="M28 51 50 33l22 18v29H57V62H43v18H28V51Z" fill="#fff"/>
+  <path d="M43 80V62h14v18" fill="#d71920"/>
 </svg>

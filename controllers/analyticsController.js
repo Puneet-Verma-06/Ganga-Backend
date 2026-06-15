@@ -3,7 +3,7 @@ const Analytics = require('../models/Analytics');
 // Track a page view
 exports.trackPageView = async (req, res) => {
   try {
-    const { path, visitorId, sessionId, referrer } = req.body;
+    const { path, visitorId, sessionId, referrer, site } = req.body;
     const userAgent = req.headers['user-agent'];
     const ip = req.ip || req.connection.remoteAddress;
 
@@ -13,10 +13,13 @@ exports.trackPageView = async (req, res) => {
       visitorId,
       sessionId,
       referrer,
+      site,
       userAgent,
       ip,
       date: new Date()
     });
+
+    console.log('Tracked pageview:', { path, site, visitorId, sessionId, referrer });
 
     res.json({ success: true });
   } catch (error) {
@@ -28,7 +31,7 @@ exports.trackPageView = async (req, res) => {
 // Track a session
 exports.trackSession = async (req, res) => {
   try {
-    const { sessionId, visitorId, duration } = req.body;
+    const { sessionId, visitorId, duration, site } = req.body;
     const userAgent = req.headers['user-agent'];
     const ip = req.ip || req.connection.remoteAddress;
 
@@ -37,10 +40,13 @@ exports.trackSession = async (req, res) => {
       sessionId,
       visitorId,
       duration,
+      site,
       userAgent,
       ip,
       date: new Date()
     });
+
+    console.log('Tracked session:', { sessionId, visitorId, duration, site });
 
     res.json({ success: true });
   } catch (error) {
@@ -52,24 +58,24 @@ exports.trackSession = async (req, res) => {
 // Get traffic statistics
 exports.getTrafficStats = async (req, res) => {
   try {
-    const { days = 30 } = req.query;
+    const { days = 30, site } = req.query;
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - parseInt(days));
 
     // Get total visits (page views)
-    const totalVisits = await Analytics.countDocuments({
-      type: 'pageview',
-      date: { $gte: startDate }
-    });
+    const baseMatch = { type: 'pageview', date: { $gte: startDate } };
+    if (site) baseMatch.site = site;
+
+    const totalVisits = await Analytics.countDocuments(baseMatch);
 
     // Get unique visitors
     const uniqueVisitorsData = await Analytics.aggregate([
       {
-        $match: {
+        $match: Object.assign({
           type: 'pageview',
           date: { $gte: startDate },
           visitorId: { $exists: true, $ne: null }
-        }
+        }, site ? { site } : {})
       },
       {
         $group: {
@@ -88,11 +94,11 @@ exports.getTrafficStats = async (req, res) => {
     // Get average session duration
     const sessionData = await Analytics.aggregate([
       {
-        $match: {
+        $match: Object.assign({
           type: 'session',
           date: { $gte: startDate },
           duration: { $exists: true, $ne: null }
-        }
+        }, site ? { site } : {})
       },
       {
         $group: {
@@ -113,11 +119,11 @@ exports.getTrafficStats = async (req, res) => {
     // Get top pages
     const topPagesData = await Analytics.aggregate([
       {
-        $match: {
+        $match: Object.assign({
           type: 'pageview',
           date: { $gte: startDate },
           path: { $exists: true, $ne: null }
-        }
+        }, site ? { site } : {})
       },
       {
         $group: {
@@ -155,17 +161,14 @@ exports.getTrafficStats = async (req, res) => {
 // Get traffic over time (for charts)
 exports.getTrafficOverTime = async (req, res) => {
   try {
-    const { days = 30 } = req.query;
+    const { days = 30, site } = req.query;
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - parseInt(days));
 
+    const matchObj = Object.assign({ type: 'pageview', date: { $gte: startDate } }, site ? { site } : {});
+
     const trafficData = await Analytics.aggregate([
-      {
-        $match: {
-          type: 'pageview',
-          date: { $gte: startDate }
-        }
-      },
+      { $match: matchObj },
       {
         $group: {
           _id: {

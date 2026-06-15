@@ -1,0 +1,20 @@
+[33m8987527[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Initial backend commit
+[33m39ec0f3[m l
+[33mb781597[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m donr
+[33mbd3c605[m l
+[33mc8e46a4[m k
+[33mab02b14[m k
+[33m78af0d0[m j
+[33m722a234[m k
+[33me982f36[m Update MongoDB connection to Adira cluster
+[33m7f5bc98[m Remove GitHub Actions - not needed for Hostinger deployment
+[33m3c5cfd4[m Fix CI workflow - use npm install instead of npm ci
+[33m3b8de33[m Update build files with new images and local storage setup
+[33mf1be6e3[m k
+[33m560ac55[m Fix Hostinger 503 error - export app properly and remove conflicting .htaccess
+[33mc0df632[m Fix 503 error - reorder middleware and improve DB connection handling
+[33mb5334be[m Add Hostinger .htaccess and deployment files
+[33m7ec6fcb[m Fix build assets folder structure
+[33mc476b41[m k
+[33m39bf0da[m Add enhanced debug logging and updated frontend build
+[33ma3f4def[m Temporarily expose error messages for debugging
